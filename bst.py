@@ -7,4 +7,34 @@
 
 class BinarySearchTree:
 
-    pass
+    def __init__(self, key = None):
+        self.key = key
+        self.left = None
+        self.right = None
+
+    def insert(self, item):
+        self.left = item
+        self.right = item
+
+    def search(self, new_key):
+        if (self.key == new_key):
+            return self
+    def is_leaf(self):
+        return not (self.has_left_child() or self.has_right_child())
+        
+    def has_left_child(self):
+        return not (self.left is None)
+
+    def has_right_child(self):
+        return not (self.right is None)
+
+    def delete(self, key):
+        if key <self.key:
+            if self.has_left_child():
+                self.left = self.left.delete(key)
+            return self #return root child of each subtree back up to root
+        elif key == self.key: #base case
+                if self.is_leaf():
+                    return None 
+        
+         
