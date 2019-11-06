@@ -104,53 +104,53 @@ class TestBinarySearchTree(unittest.TestCase):
         bst = BinarySearchTree(5)
         self.assertEqual(bst, bst.delete(-999))
 
-    # def test_delete_single(self):
-    #     """
-    #     Deleting the node of a single-level tree returns None.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertIsNone(bst.delete(5))
+    def test_delete_single(self):
+        """
+        Deleting the node of a single-level tree returns None.
+        """
+        bst = BinarySearchTree(5)
+        self.assertIsNone(bst.delete(5))
 
-    # """
-    # Toddler, two-level trees. (Depth of one.)
-    # """
+    """
+    Toddler, two-level trees. (Depth of one.)
+    """
 
-    # def test_insert_two_smaller_left(self):
-    #     """
-    #     Inserting a node with a key that is less than the left child's key appends
-    #     the new node as the left child's left child.
-    #       5             5
-    #      / \    =>     / \
-    #     3   7         3   7
-    #                  /
-    #                 1
-    #     Hint: Nest your logic. Delegate with recursion.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     child = BinarySearchTree(1)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.left)
+    def test_insert_two_smaller_left(self):
+        """
+        Inserting a node with a key that is less than the left child's key appends
+        the new node as the left child's left child.
+          5             5
+         / \    =>     / \
+        3   7         3   7
+                     /
+                    1
+        Hint: Nest your logic. Delegate with recursion.
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        child = BinarySearchTree(1)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.left)
 
-    # def test_insert_two_greater_left(self):
-    #     """
-    #     Inserting a node with a key that is greater than the left child's key
-    #     (and less than the parent/root) appends the new node as the left child's
-    #     right child.
-    #       5             5
-    #      / \    =>     / \
-    #     3   7         3   7
-    #                    \
-    #                     4
-    #     Hint: If this test immediately passes, you are on a happy path.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     child = BinarySearchTree(4)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.right)
+    def test_insert_two_greater_left(self):
+        """
+        Inserting a node with a key that is greater than the left child's key
+        (and less than the parent/root) appends the new node as the left child's
+        right child.
+          5             5
+         / \    =>     / \
+        3   7         3   7
+                       \
+                        4
+        Hint: If this test immediately passes, you are on a happy path.
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        child = BinarySearchTree(4)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.right)
 
     # def test_insert_two_greater_right(self):
     #     """
@@ -537,58 +537,58 @@ class TestBinarySearchTree(unittest.TestCase):
     # Before proper deletions, let's add some convenience methods.
     # """
 
-    # def test_is_leaf(self):
-    #     """
-    #     A node without children is a leaf node.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertTrue(bst.is_leaf())
+    def test_is_leaf(self):
+        """
+        A node without children is a leaf node.
+        """
+        bst = BinarySearchTree(10)
+        self.assertTrue(bst.is_leaf())
 
-    # def test_with_left_child_is_not_leaf(self):
-    #     """
-    #     A node with a left child is not a leaf node.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(5)
-    #     self.assertFalse(bst.is_leaf())
+    def test_with_left_child_is_not_leaf(self):
+        """
+        A node with a left child is not a leaf node.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(5)
+        self.assertFalse(bst.is_leaf())
 
-    # def test_with_right_child_is_not_leaf(self):
-    #     """
-    #     A node with a right child is not a leaf node.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.right = BinarySearchTree(15)
-    #     self.assertFalse(bst.is_leaf())
+    def test_with_right_child_is_not_leaf(self):
+        """
+        A node with a right child is not a leaf node.
+        """
+        bst = BinarySearchTree(10)
+        bst.right = BinarySearchTree(15)
+        self.assertFalse(bst.is_leaf())
 
-    # def test_has_left_child(self):
-    #     """
-    #     A node with a left child returns True.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(5)
-    #     self.assertTrue(bst.has_left_child())
+    def test_has_left_child(self):
+        """
+        A node with a left child returns True.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(5)
+        self.assertTrue(bst.has_left_child())
 
-    # def test_not_has_left_child(self):
-    #     """
-    #     A node without a left child returns False.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertFalse(bst.has_left_child())
+    def test_not_has_left_child(self):
+        """
+        A node without a left child returns False.
+        """
+        bst = BinarySearchTree(10)
+        self.assertFalse(bst.has_left_child())
 
-    # def test_has_right_child(self):
-    #     """
-    #     A node with a right child returns True.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     bst.left = BinarySearchTree(15)
-    #     self.assertTrue(bst.has_left_child())
+    def test_has_right_child(self):
+        """
+        A node with a right child returns True.
+        """
+        bst = BinarySearchTree(10)
+        bst.left = BinarySearchTree(15)
+        self.assertTrue(bst.has_left_child())
 
-    # def test_not_has_right_child(self):
-    #     """
-    #     A node without a right child returns False.
-    #     """
-    #     bst = BinarySearchTree(10)
-    #     self.assertFalse(bst.has_right_child())
+    def test_not_has_right_child(self):
+        """
+        A node without a right child returns False.
+        """
+        bst = BinarySearchTree(10)
+        self.assertFalse(bst.has_right_child())
 
     # def test_find_minimum_one(self):
     #     """
